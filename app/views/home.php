@@ -44,25 +44,29 @@
                 <p>new arrivals</p>
             </div>
 
-            <?php
-                var_dump($data);
-            ?>
-
             <div class="new-arrivals__listproduct">
-                <div class="new-arrivals__listproduct-product">
-                    <div class="product-img">
-                        <img src="./public/img/T-shirt_with_Tape_Details.svg" alt="">
-                    </div>
-                    <div class="product-name">
-                        <p>T-shirt with Tape Details</p>
-                    </div>
-                    <div class="product-purchases">
-                        <p>Purchases: </p>
-                    </div>
-                    <div class="product-price">
-                        <span>$120</span>
-                    </div>
-                </div>
+                <?php
+                    $product = $data['product'];
+                    foreach($product as $item){
+                        extract($item);
+                        echo '
+                            <div class="new-arrivals__listproduct-product">
+                                <div class="product-img">
+                                    <img src="./public/img/'.$image.'" alt="">
+                                </div>
+                                <div class="product-name">
+                                    <p>'.$name.'</p>
+                                </div>
+                                <div class="product-purchases">
+                                    <p>Purchases: '.$purchases.'</p>
+                                </div>
+                                <div class="product-price">
+                                    <span>$'.$price.'</span>
+                                </div>
+                            </div>';
+                    }
+                    
+                ?>
             </div>
 
             
