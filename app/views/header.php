@@ -16,7 +16,18 @@
             </div>
             <nav class="header__navigation">
                 <ul>
-                    <li class="fix"><a href="#">Shop <i><img src="./public/img/icon_arrow_down.svg" alt=""></i></a></li>
+                    <li class="fix">
+                        <a href="#">Shop <i><img src="./public/img/icon_arrow_down.svg" alt=""></i></a>
+                        <ul>
+                            <?php 
+                                $list = $data['list'];
+                                foreach($list as $item){
+                                    extract($item);
+                                    echo '<li>'.$name.'</li>';
+                                }
+                            ?>
+                        </ul>
+                    </li>
                     <li><a href="#">On Sale</a></li>
                     <li><a href="#">New Arrivals</a></li>
                     <li><a href="#">Brands</a></li>

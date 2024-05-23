@@ -46,7 +46,14 @@
 
             <div class="new-arrivals__listproduct">
                 <?php
-                    $product = $data['product'];
+                    $data = $data['product'];
+                    function newArrivals($product){
+                        usort($product, function($a, $b){
+                            return $a['id'] <=> $b['id'];
+                        });
+                        return array_splice($product, 0, 4);
+                    }
+                    $product = newArrivals($data);
                     foreach($product as $item){
                         extract($item);
                         echo '
@@ -80,20 +87,33 @@
             </div>
 
             <div class="top-selling__listproduct">
-                <div class="top-selling__listproduct-product">
-                    <div class="product-img">
-                        <img src="./public/img/Vertical_Striped_Shirt.svg" alt="">
-                    </div>
-                    <div class="product-name">
-                        <p>Vertical Striped Shirt</p>
-                    </div>
-                    <div class="product-purchases">
-                        <p>Purchases: </p>
-                    </div>
-                    <div class="product-price">
-                        <span>$212</span>
-                    </div>
-                </div>
+                <?php 
+                function topSelling($product){
+                    usort($product, function($a,$b){
+                        return $b['purchases'] <=> $a['purchases'];
+                    });
+                    return array_splice($product, 0, 4);
+                }
+                $product = topSelling($data);
+                foreach($product as $item){
+                    extract($item);
+                    echo '
+                        <div class="top-selling__listproduct-product">
+                            <div class="product-img">
+                                <img src="./public/img/'.$image.'" alt="">
+                            </div>
+                            <div class="product-name">
+                                <p>'.$name.'</p>
+                            </div>
+                            <div class="product-purchases">
+                                <p>Purchases: '.$purchases.'</p>
+                            </div>
+                            <div class="product-price">
+                                <span>$'.$price.'</span>
+                            </div>
+                        </div>';
+                }
+                ?>
             </div>
 
             
