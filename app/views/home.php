@@ -47,14 +47,8 @@
             <div class="new-arrivals__listproduct">
                 <?php
                     $data = $data['product'];
-                    function newArrivals($product){
-                        usort($product, function($a, $b){
-                            return $a['id'] <=> $b['id'];
-                        });
-                        return array_splice($product, 0, 4);
-                    }
-                    $product = newArrivals($data);
-                    foreach($product as $item){
+
+                    foreach($data as $item){
                         extract($item);
                         echo '
                             <div class="new-arrivals__listproduct-product">
