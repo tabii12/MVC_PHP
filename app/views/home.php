@@ -24,17 +24,17 @@
                 </div>
             </div>
             <div class="banner__right">
-                <img src="./public/img/main_banner.svg" alt="">
+                <img src="../public/img/main_banner.svg" alt="">
             </div>
         </div>
 
         <div class="brands">
             <div class="brands__box">
-                <i><img src="./public/img/logo_versace.svg" alt=""></i>
-                <i><img src="./public/img/logo_zara.svg" alt=""></i>
-                <i><img src="./public/img/logo_guccisvg.svg" alt=""></i>
-                <i><img src="./public/img/logo_prada.svg" alt=""></i>
-                <i><img src="./public/img/logo_calvin_klein.svg" alt=""></i>
+                <i><img src="../public/img/logo_versace.svg" alt=""></i>
+                <i><img src="../public/img/logo_zara.svg" alt=""></i>
+                <i><img src="../public/img/logo_guccisvg.svg" alt=""></i>
+                <i><img src="../public/img/logo_prada.svg" alt=""></i>
+                <i><img src="../public/img/logo_calvin_klein.svg" alt=""></i>
             </div>
         </div>
 
@@ -43,28 +43,29 @@
             <div class="new-arrivals__title">
                 <p>new arrivals</p>
             </div>
-
+    
             <div class="new-arrivals__listproduct">
                 <?php
                     $data = $data['product'];
 
                     foreach($data as $item){
                         extract($item);
-                        echo '
-                            <div class="new-arrivals__listproduct-product">
-                                <div class="product-img">
-                                    <img src="./public/img/'.$image.'" alt="">
+                        echo '<a href="index.php?page=detail&id='.$id.'">
+                                <div class="new-arrivals__listproduct-product">
+                                    <div class="product-img">
+                                        <img src="../public/img/product_'.$image.'" alt="">
+                                    </div>
+                                    <div class="product-name">
+                                        <p>'.$name.'</p>
+                                    </div>
+                                    <div class="product-purchases">
+                                        <p>Purchases: '.$purchases.'</p>
+                                    </div>
+                                    <div class="product-price">
+                                        <span>$'.$price.'</span>
+                                    </div>
                                 </div>
-                                <div class="product-name">
-                                    <p>'.$name.'</p>
-                                </div>
-                                <div class="product-purchases">
-                                    <p>Purchases: '.$purchases.'</p>
-                                </div>
-                                <div class="product-price">
-                                    <span>$'.$price.'</span>
-                                </div>
-                            </div>';
+                            </a>';
                     }
                     
                 ?>
@@ -92,20 +93,22 @@
                 foreach($product as $item){
                     extract($item);
                     echo '
-                        <div class="top-selling__listproduct-product">
-                            <div class="product-img">
-                                <img src="./public/img/'.$image.'" alt="">
+                        <a href="index.php?page=detail&id='.$id.'">
+                            <div class="top-selling__listproduct-product">
+                                <div class="product-img">
+                                    <img src="../public/img/product_'.$image.'" alt="">
+                                </div>
+                                <div class="product-name">
+                                    <p>'.$name.'</p>
+                                </div>
+                                <div class="product-purchases">
+                                    <p>Purchases: '.$purchases.'</p>
+                                </div>
+                                <div class="product-price">
+                                    <span>$'.$price.'</span>
+                                </div>
                             </div>
-                            <div class="product-name">
-                                <p>'.$name.'</p>
-                            </div>
-                            <div class="product-purchases">
-                                <p>Purchases: '.$purchases.'</p>
-                            </div>
-                            <div class="product-price">
-                                <span>$'.$price.'</span>
-                            </div>
-                        </div>';
+                        </a>';
                 }
                 ?>
             </div>
@@ -121,18 +124,18 @@
             <div class="style__list">
                 <div class="style__list-top">
                     <div class="casual">
-                        <img src="./public/img/logo_casual.svg" alt="">
+                        <img src="../public/img/logo_casual.svg" alt="">
                     </div>
                     <div class="formal">
-                        <img src="./public/img/logo_formal.svg" alt="">
+                        <img src="../public/img/logo_formal.svg" alt="">
                     </div>
                 </div>
                 <div class="style__list-bottom">
                     <div class="party">
-                        <img src="./public/img/logo_party.svg" alt="">
+                        <img src="../public/img/logo_party.svg" alt="">
                     </div>
                     <div class="gym">
-                        <img src="./public/img/logo_gym.svg" alt="">
+                        <img src="../public/img/logo_gym.svg" alt="">
                     </div>
                 </div>
             </div>
