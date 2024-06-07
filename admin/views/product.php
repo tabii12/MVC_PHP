@@ -16,22 +16,40 @@
                                 <table class="table table-hover table-striped">
                                     <thead>
                                         <th>STT</th>
+                                        <th>Loại</th>
                                     	<th>Tên</th>
                                         <th>Giá</th>
                                     	<th>Hình ảnh</th>
                                     	<th>Chức năng</th>
+                                        
                                     </thead>
                                     <tbody>
                                         <?php 
                                             foreach($data['product'] as $item){
                                                 extract($item);
+                                                $show = '';
+                                                switch($id_list){
+                                                    case '1':
+                                                        $show = 'T-shirt';
+                                                        break;
+                                                    case '2':
+                                                        $show = 'Short';
+                                                        break;
+                                                    case '3':
+                                                        $show = 'Shirt';
+                                                        break;
+                                                    case '4':
+                                                        $show = 'Jean';
+                                                        break;
+                                                }
                                                 echo '
                                                     <tr>
                                                         <td>'.$id.'</td>
+                                                        <td>'.$show.'</td>
                                                         <td>'.$name.'</td>
                                                         <td>$'.$price.'</td>
                                                         <td><img src="../public/img/product_'.$image.'" alt="" height = "80px" width = "100px"></td>
-                                                        <td><a href="">Sửa</a> | <a href="index.php?page=product&id='.$id.'">Xóa</a></td>
+                                                        <td><a href="index.php?page=edit&id='.$id.'">Sửa</a> | <a href="index.php?page=del&id='.$id.'">Xóa</a></td>
                                                     </tr>
                                                 ';
                                             }

@@ -19,8 +19,13 @@
             case 'user':
                 $admin->user();
                 break;
-
-            
+            case 'del':
+                $admin->del();
+                break;
+            case 'edit':
+                $admin->edit();
+                $admin->editPro();
+                break;
             default:
                 $admin->product();
                 $admin->category();

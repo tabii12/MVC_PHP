@@ -10,26 +10,26 @@
                                 <p class="category"></p>
                             </div>
                             <div class="content table-responsive table-full-width">
-                                <form action="index.php?page=add_product" method="post">
-                                    <label for="">Danh mục sản phẩm</label>
-                                    <select name="id_list" id="cate" class="form-control">
-                                        <option value="1">T-shirts</option>
-                                        <option value="2">Shorts</option>
-                                        <option value="3">Shirts</option>
-                                        <option value="4">Jeans</option>
-                                    </select>
-                                        
-                                    <label for="">Tên sản phẩm</label>
-                                    <input type="text" name="name" id="name" class="form-control"> 
+                            <form action="index.php?page=add_product" method="post" enctype="multipart/form-data">
+                                <label for="cate">Danh mục sản phẩm</label>
+                                <select name="id_list" id="cate" class="form-control">
+                                    <option value="1">T-shirts</option>
+                                    <option value="2">Shorts</option>
+                                    <option value="3">Shirts</option>
+                                    <option value="4">Jeans</option>
+                                </select>
+                                
+                                <label for="name">Tên sản phẩm</label>
+                                <input type="text" name="name" id="name" class="form-control"> 
 
-                                    <label for="">Giá sản phẩm</label>
-                                    <input type="number" name="price" id="price" class="form-control">
+                                <label for="price">Giá sản phẩm</label>
+                                <input type="number" name="price" id="price" class="form-control">
 
-                                    <label for="">Hình ảnh</label>
-                                    <input type="file" name="image" id="image" class="form-control">
+                                <label for="image">Hình ảnh</label>
+                                <input type="file" name="image" id="image" class="form-control">
 
-                                    <input type="button" name="submit" value="Thêm sản phẩm" onclick="" >
-                                </form>
+                                <input type="submit" name="submit" value="Thêm sản phẩm">
+                            </form>
 
                             </div>
                             

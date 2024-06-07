@@ -14,14 +14,24 @@
                 $this->conn = new PDO("mysql:host=$this->servername; dbname=$this->dbname; charset = utf8", $this->username, $this->password);
                 // set the PDO error mode to exception
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            } catch(PDOException $e) { echo 'something when wrong';
+            }catch(PDOException $e){ 
+                echo 'something when wrong';
             }
         }
 
-        public function query($sql){
-            $this->stmt = $this->conn->prepare($sql);
-            $this->stmt->execute();
-            return $this->stmt;
+        public function query($sql, $param = []) {
+            try {
+                $this->stmt = $this->conn->prepare($sql);
+                if (!empty($param)) {
+                    foreach ($param as $key => $value) {
+                        $this->stmt->bindValue($key + 1, $value); // PDO parameters are 1-indexed
+                    }
+                }
+                $this->stmt->execute();
+                return $this->stmt;
+            } catch (PDOException $e) {
+                echo 'Query error: ' . $e->getMessage();
+            }
         }
 
         public function getAll($sql){
@@ -33,12 +43,22 @@
             $statement = $this->query($sql);
             return $statement->fetch(PDO::FETCH_ASSOC);
         }
-        
-        function insert($sql, $param){
-            $statement = $this->query($sql, $param);
+
+        public function insert($sql, $param) {
+            $this->query($sql, $param);
+            return $this->conn->lastInsertId();
         }
 
-        function delete($sql){
+        public function delete($sql, $param) {
+            $this->query($sql, $param);
+        }
 
-        }   
+        public function update($sql, $params) {
+            $this->query($sql, $params);
+        }
+
+        public function __destruct(){
+            unset($this->conn);
+        }
+         
     }

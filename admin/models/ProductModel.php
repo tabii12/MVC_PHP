@@ -17,7 +17,7 @@
         }
 
         public function insertProduct($data){
-            $sql = "INSERT INTO product (id, id_list, image, name, price) VALUES (NULL, :id_list, :image, :name, :price)";
+            $sql = "INSERT INTO product (name,price,id_list,image) VALUES (?,?,?,?)";
             $param = [$data['name'],$data['price'],$data['id_list'],$data['image']];
             return $this->product->insert($sql, $param);
         }
@@ -25,7 +25,13 @@
         public function deleteProduct($id){
             $sql = " DELETE FROM product WHERE id = ?";
 
-            return $this->product->delete($sql);
+            return $this->product->delete($sql,[$id]);
+        }
+
+        public function updatePro($data) {
+            $sql = "UPDATE product SET name = ?, price = ?, id_list = ?, image = ? WHERE id = ?";
+            $param = [$data['name'], $data['price'], $data['id_list'], $data['image'], $data['id']];
+            $this->product->update($sql, $param);
         }
 
     }

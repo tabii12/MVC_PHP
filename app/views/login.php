@@ -10,7 +10,7 @@
 
         for($i=0; $i<count($data); $i++){
             if(empty($lname)){
-                echo 'Chưa nhậ  p tên!<br>';
+                echo 'Chưa nhập tên!<br>';
                 $flag = 1;
                 break;
             }else{
